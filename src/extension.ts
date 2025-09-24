@@ -54,6 +54,19 @@ function updateDecorationPosition() {
         'English': 'EN',
         'Japanese': '日',
         'Chinese': '中',
+        'Arabic': 'ع',
+        'Russian': 'Ру',
+        'Thai': 'ไท',
+        'Vietnamese': 'Vi',
+        'German': 'De',
+        'French': 'Fr',
+        'Spanish': 'Es',
+        'Portuguese': 'Pt',
+        'Italian': 'It',
+        'Hindi': 'हि',
+        'Bengali': 'বা',
+        'Turkish': 'Tr',
+        'Polish': 'Pl',
         'Unknown': '?'
     };
 
@@ -62,6 +75,19 @@ function updateDecorationPosition() {
         'English': '#4ecdc4a0',
         'Japanese': '#ffe66da0',
         'Chinese': '#a8dadca0',
+        'Arabic': '#e76f51a0',
+        'Russian': '#2a9d8fa0',
+        'Thai': '#e9c46aa0',
+        'Vietnamese': '#f4a261a0',
+        'German': '#264653a0',
+        'French': '#287271a0',
+        'Spanish': '#f07167a0',
+        'Portuguese': '#00afb9a0',
+        'Italian': '#fed9b7a0',
+        'Hindi': '#ff9f1ca0',
+        'Bengali': '#06ffa5a0',
+        'Turkish': '#ef476fa0',
+        'Polish': '#118ab2a0',
         'Unknown': '#6c757da0'
     };
 

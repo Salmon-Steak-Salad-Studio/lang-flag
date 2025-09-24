@@ -1,6 +1,26 @@
+export type SupportedLanguage =
+    | 'Korean'
+    | 'English'
+    | 'Japanese'
+    | 'Chinese'
+    | 'Arabic'
+    | 'Russian'
+    | 'Thai'
+    | 'Vietnamese'
+    | 'German'
+    | 'French'
+    | 'Spanish'
+    | 'Portuguese'
+    | 'Italian'
+    | 'Hindi'
+    | 'Bengali'
+    | 'Turkish'
+    | 'Polish'
+    | 'Unknown';
+
 export interface InputSourceInfo {
     source: string;
-    language: 'Korean' | 'English' | 'Japanese' | 'Chinese' | 'Unknown';
+    language: SupportedLanguage;
     platform: 'mac' | 'windows' | 'linux';
 }
 
