@@ -8,6 +8,7 @@
     "type": "git",
     "url": "https://github.com/Salmon-Steak-Salad-Studio/lang-flag"
   },
+  "license": "MIT",
   "engines": {
     "vscode": "^1.104.0"
   },
