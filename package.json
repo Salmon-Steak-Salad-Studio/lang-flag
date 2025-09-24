@@ -1,19 +1,22 @@
 {
-  "name": "keyboard-language-indicator",
-  "displayName": "Keyboard Language Indicator",
-  "description": "Display current keyboard language near cursor",
+  "name": "lang-flag",
+  "displayName": "Lang Flag",
+  "description": "Display current keyboard language flag near cursor",
   "version": "0.0.1",
+  "publisher": "SalmonSteakSaladStudio",
   "engines": {
     "vscode": "^1.80.0"
   },
   "categories": [
     "Other"
   ],
-  "activationEvents": ["onStartupFinished"],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
   "main": "./dist/extension.js",
   "contributes": {
     "configuration": {
-      "title": "Keyboard Language Indicator",
+      "title": "Lang Flag",
       "properties": {
         "keyboardLanguageIndicator.enabled": {
           "type": "boolean",
