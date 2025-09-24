@@ -23,6 +23,7 @@ export function activate(context: vscode.ExtensionContext) {
 
     context.subscriptions.push(
         vscode.workspace.onDidChangeTextDocument(() => {
+            updateLanguage();
             startPolling(100);
 
             setTimeout(() => {
@@ -33,12 +34,49 @@ export function activate(context: vscode.ExtensionContext) {
 
     context.subscriptions.push(
         vscode.window.onDidChangeTextEditorSelection(() => {
+            updateDecorationPosition();
             updateLanguage();
         })
     );
 
     startPolling(500);
     updateLanguage();
+}
+
+function updateDecorationPosition() {
+    const editor = vscode.window.activeTextEditor;
+    if (!editor || !currentLanguage) {
+        return;
+    }
+
+    const icons: Record<InputSourceInfo['language'], string> = {
+        'Korean': '한',
+        'English': 'EN',
+        'Japanese': '日',
+        'Chinese': '中',
+        'Unknown': '?'
+    };
+
+    const colors: Record<InputSourceInfo['language'], string> = {
+        'Korean': '#ff6b6ba0',
+        'English': '#4ecdc4a0',
+        'Japanese': '#ffe66da0',
+        'Chinese': '#a8dadca0',
+        'Unknown': '#6c757da0'
+    };
+
+    const position = editor.selection.active;
+    editor.setDecorations(decorationType, [{
+        range: new vscode.Range(position, position),
+        renderOptions: {
+            before: {
+                contentText: `${icons[currentLanguage]}`,
+                backgroundColor: colors[currentLanguage],
+                color: '#ffffff',
+                textDecoration: `none; position: absolute; top: 0; transform: translateY(-100%); border-radius: 1px; font-weight: bold; font-size: 9px; line-height: 1; padding: 1px 3px;`
+            }
+        }
+    }]);
 }
 
 async function updateLanguage() {
@@ -63,36 +101,8 @@ async function updateLanguage() {
 
         if (info.language !== currentLanguage) {
             currentLanguage = info.language;
+            updateDecorationPosition();
         }
-
-        const icons: Record<InputSourceInfo['language'], string> = {
-            'Korean': '한',
-            'English': 'EN',
-            'Japanese': '日',
-            'Chinese': '中',
-            'Unknown': '?'
-        };
-
-        const colors: Record<InputSourceInfo['language'], string> = {
-            'Korean': '#ff6b6ba0',
-            'English': '#4ecdc4a0',
-            'Japanese': '#ffe66da0',
-            'Chinese': '#a8dadca0',
-            'Unknown': '#6c757da0'
-        };
-
-        const position = editor.selection.active;
-        editor.setDecorations(decorationType, [{
-            range: new vscode.Range(position, position),
-            renderOptions: {
-                after: {
-                    contentText: `${icons[info.language]}`,
-                    backgroundColor: colors[info.language],
-                    color: '#ffffff',
-                    textDecoration: `none; position: absolute; top: 0; transform: translateY(-100%); border-radius: 1px; font-weight: bold; font-size: 9px; line-height: 1; padding: 1px 3px;`
-                }
-            }
-        }]);
     } catch (error) {
         console.error('Language detection failed:', error);
     }
