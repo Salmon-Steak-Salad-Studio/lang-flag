@@ -4,8 +4,12 @@
   "description": "Display current keyboard language flag near cursor",
   "version": "0.0.1",
   "publisher": "SalmonSteakSaladStudio",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Salmon-Steak-Salad-Studio/lang-flag"
+  },
   "engines": {
-    "vscode": "^1.80.0"
+    "vscode": "^1.104.0"
   },
   "categories": [
     "Other"
