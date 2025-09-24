@@ -1,0 +1,9 @@
+{
+  "generator-code": {
+    "type": "ext-extensionTs",
+    "name": "keyboard-language-indicator",
+    "displayName": "Keyboard Language Indicator",
+    "description": "Display current keyboard language near cursor",
+    "pkgManager": "pnpm"
+  }
+}
